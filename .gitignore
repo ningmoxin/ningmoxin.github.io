@@ -1,0 +1,17 @@
+# 個人／未公開檔案，不上傳
+*.pdf
+*.docx
+IMG_*.PNG
+IMG_*.png
+# 之後要放履歷下載：把下一行開頭的 # 拿掉
+# !resume.pdf
+
+# 已改用 WebP 的原始大圖（og-image.png 要保留）
+images/*.png
+!images/og-image.png
+
+# 系統檔
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

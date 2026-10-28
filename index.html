@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>黃足寧 Tsu-Ning (Moxin) Huang｜Portfolio</title>
+  <meta name="description" content="黃足寧 Huang Tsu Ning — 全端工程師 × 資訊主管，15 年軟體開發經驗。作品集、生成式 AI 研究與經歷。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d1d1f'/%3E%3Ctext x='9' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='800' fill='%23fff'%3ETN%3C/text%3E%3Ccircle cx='53' cy='41' r='4' fill='%23ff6b4a'/%3E%3C/svg%3E" />
+
+  <!-- 分享預覽（LINE / Facebook / LinkedIn）。網址若不同，請改 og:url 與 og:image -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ningmoxin.github.io/" />
+  <meta property="og:title" content="黃足寧 Tsu-Ning Huang (Moxin)｜Portfolio" />
+  <meta property="og:description" content="全端工程師 × 資訊主管，15 年軟體開發經驗。作品集、生成式 AI 研究與經歷。" />
+  <meta property="og:image" content="https://ningmoxin.github.io/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f4f2;
+      --bg-soft: #ebebe8;
+      --card: #ffffff;
+      --ink: #1d1d1f;
+      --ink-2: #55555a;
+      --ink-3: #8a8a90;
+      --line: #e2e2de;
+      --accent: #ff6b4a;
+      --accent-soft: #ffe7e0;
+      --c-blue: #4a7dff;
+      --c-green: #22b07d;
+      --c-yellow: #ffb020;
+      --c-purple: #8b5cf6;
+      --c-line: #06c755;
+      --radius: 20px;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+      --shadow-lg: 0 2px 4px rgba(0,0,0,.04), 0 20px 48px rgba(0,0,0,.10);
+      --font: "Inter", "Noto Sans TC", system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--font); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+    /* bilingual: show only the active language */
+    html[data-lang="zh"] [lang="en"], html[data-lang="en"] [lang="zh"] { display: none !important; }
+
+    /* ---------- nav ---------- */
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(244,244,242,.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .nav.scrolled { border-color: var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 800; font-size: 20px; letter-spacing: -.02em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; font-size: 15px; color: var(--ink-2); }
+    .nav-links a:hover { color: var(--ink); }
+    .lang-toggle { display: flex; background: var(--bg-soft); border-radius: 999px; padding: 3px; }
+    .lang-toggle button { border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px; cursor: pointer; color: var(--ink-3); }
+    .lang-toggle button.active { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+
+    /* ---------- hero ---------- */
+    .hero { padding: 64px 0 24px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+    .hello { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; font-size: 14px; color: var(--ink-2); margin-bottom: 20px; }
+    .hello .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-green); box-shadow: 0 0 0 4px rgba(34,176,125,.15); }
+    .hero h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.15; font-weight: 900; letter-spacing: -.02em; margin-bottom: 16px; }
+    .hero h1 .hl { background: linear-gradient(transparent 62%, var(--accent-soft) 62%); }
+    .hero .role { font-size: clamp(17px, 2.2vw, 20px); color: var(--ink-2); margin-bottom: 28px; max-width: 34em; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: transform .15s, box-shadow .15s, background .15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+    .btn-ghost { background: var(--card); border: 1px solid var(--line); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
+    .stat { background: var(--card); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); }
+    .stat b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+    .stat span { font-size: 13px; color: var(--ink-3); line-height: 1.4; display: block; }
+
+    .avatar-card { position: relative; justify-self: center; width: min(340px, 100%); aspect-ratio: 1; }
+    .avatar { width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: linear-gradient(135deg, #ffd9cf, #ffe9b8 55%, #d6e4ff); box-shadow: var(--shadow-lg); display: grid; place-items: center; transform: rotate(-3deg); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .avatar .initial { font-size: 120px; font-weight: 900; color: rgba(29,29,31,.85); }
+    .badge { position: absolute; background: var(--card); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow-lg); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; animation: float 5s ease-in-out infinite; white-space: nowrap; }
+    .badge.b1 { top: 8%; left: -12%; }
+    .badge.b2 { bottom: 14%; right: -10%; animation-delay: -1.5s; }
+    .badge.b3 { bottom: -4%; left: 6%; animation-delay: -3s; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    /* ---------- sections ---------- */
+    section { padding: 36px 0; }
+    .sec-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+    .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; letter-spacing: -.02em; line-height: 1.2; }
+
+    /* ---------- projects ---------- */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filters button { border: 1px solid var(--line); background: var(--card); font: inherit; font-size: 14px; font-weight: 500; padding: 7px 16px; border-radius: 999px; cursor: pointer; color: var(--ink-2); transition: all .15s; }
+    .filters button:hover { color: var(--ink); border-color: var(--ink-3); }
+    .filters button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; align-items: start; }
+    .card { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .card.hide { display: none; }
+    .cover { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--c, var(--accent)); }
+    .cover img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .4s; }
+    .card:hover .cover img, .card:hover .mock { transform: scale(1.04) rotate(-1deg); }
+    .card-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .tag { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--bg); color: var(--ink-2); }
+    .card h3 { font-size: 20px; font-weight: 800; letter-spacing: -.01em; margin-bottom: 8px; line-height: 1.35; }
+    .card p { color: var(--ink-2); font-size: 15px; }
+    .card ul { margin: 12px 0 0 0; list-style: none; font-size: 14px; color: var(--ink-2); }
+    .card ul li { padding-left: 18px; position: relative; margin-bottom: 4px; }
+    .card ul li::before { content: ""; position: absolute; left: 4px; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--c, var(--accent)); }
+    .meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); display: grid; gap: 4px; font-size: 14px; }
+    .meta div { display: flex; gap: 10px; }
+    .meta dt { flex: none; font-weight: 700; color: var(--ink); }
+    .meta dd { color: var(--ink-2); }
+    .story { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .story summary { cursor: pointer; font-size: 14px; font-weight: 700; color: var(--ink); list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+    .story summary::-webkit-details-marker { display: none; }
+    .story summary::after { content: "+"; font-weight: 400; font-size: 18px; line-height: 1; color: var(--c, var(--accent)); }
+    .story[open] summary::after { content: "−"; }
+    .story h4 { font-size: 14px; font-weight: 800; margin-top: 12px; }
+    .story p { font-size: 14px; margin-top: 2px; }
+    .card-links { display: flex; gap: 16px; margin-top: auto; padding-top: 18px; font-size: 14px; font-weight: 600; }
+    .card-links a { color: var(--ink); border-bottom: 2px solid var(--c, var(--accent)); }
+
+    /* mock UI covers (used until real screenshots are added) */
+    .mock { position: absolute; inset: 14% 10% -6% 10%; background: #fff; border-radius: 12px 12px 0 0; box-shadow: 0 16px 40px rgba(0,0,0,.18); transition: transform .4s; overflow: hidden; }
+    .mock .bar { height: 22px; background: #f1f1ef; display: flex; gap: 5px; align-items: center; padding-left: 10px; }
+    .mock .bar i { width: 7px; height: 7px; border-radius: 50%; background: #d4d4d0; }
+    .mock .bar i:first-child { background: #ff6b6b; } .mock .bar i:nth-child(2) { background: #ffc53d; } .mock .bar i:nth-child(3) { background: #3dd68c; }
+    .mock .ui { padding: 10px; display: grid; gap: 7px; }
+    .blk { background: #efefec; border-radius: 5px; }
+    .blk.c { background: var(--c); opacity: .85; }
+    .blk.c2 { background: var(--c); opacity: .3; }
+    .ui-dash { grid-template-columns: 22% 1fr 1fr 1fr; grid-auto-rows: 26px; }
+    .ui-dash .side { grid-row: span 5; }
+    .ui-dash .wide { grid-column: span 3; grid-row: span 2; display: flex; align-items: end; gap: 6%; padding: 8px 10px; }
+    .ui-dash .wide b { flex: 1; background: var(--c); opacity: .7; border-radius: 3px 3px 0 0; }
+    .ui-dash .row3 { grid-column: span 3; }
+    .ui-site { grid-template-columns: 1fr 1fr 1fr; grid-auto-rows: 14px; }
+    .ui-site .hero-b { grid-column: span 3; grid-row: span 4; display: grid; place-items: center; }
+    .ui-site .hero-b span { width: 50%; height: 12px; border-radius: 6px; background: #fff; opacity: .9; }
+    .ui-site .tile { grid-row: span 3; }
+    .mock.phone { inset: 10% 33% -10% 33%; border-radius: 22px 22px 0 0; border: 6px solid #1d1d1f; border-bottom: 0; }
+    .ui-chat { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .ui-chat .head { height: 18px; background: var(--c); border-radius: 4px; opacity: .9; }
+    .ui-chat .msg { height: 14px; border-radius: 8px; background: #efefec; width: 70%; }
+    .ui-chat .msg.me { align-self: end; background: var(--c); opacity: .5; width: 55%; }
+    .ui-chat .menu { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-top: 6px; }
+    .ui-chat .menu b { height: 26px; border-radius: 4px; background: var(--c); opacity: .25; }
+    .ui-app { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .ui-app .head { height: 18px; border-radius: 4px; background: var(--c); opacity: .9; }
+    .ui-app .card-b { height: 34px; border-radius: 6px; background: var(--c); opacity: .3; }
+    .ui-app .grid-b { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; }
+    .ui-app .grid-b b { aspect-ratio: 1; border-radius: 6px; background: #efefec; }
+    .ui-app .grid-b b:first-child { background: var(--c); opacity: .6; }
+    .ui-app .row-b { height: 12px; border-radius: 4px; background: #efefec; }
+    .ui-doc { grid-template-columns: 1fr; grid-auto-rows: 10px; padding: 14px 18% !important; }
+    .ui-doc .t { height: 14px; width: 60%; }
+    .ui-doc .stamp { justify-self: end; width: 46px; height: 46px; border-radius: 50%; border: 3px solid var(--c); opacity: .7; margin-top: -4px; }
+    .ui-flow { display: flex !important; align-items: center; justify-content: center; gap: 8px; height: calc(100% - 22px); }
+    .ui-flow .node { width: 54px; height: 40px; border-radius: 8px; background: var(--c); opacity: .3; display: grid; place-items: center; }
+    .ui-flow .node.on { opacity: .85; }
+    .ui-flow .arr { width: 16px; height: 2px; background: var(--ink-3); }
+
+    /* ---------- research ---------- */
+    .research { background: var(--card); border-radius: 32px; padding: clamp(24px, 4vw, 48px); box-shadow: var(--shadow); }
+    .r-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin-bottom: 14px; }
+    .pill { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--bg); color: var(--ink-2); }
+    .pill.hot { background: #ede5ff; color: #6236d6; }
+    .research h3.r-title { font-size: clamp(22px, 3vw, 30px); font-weight: 900; line-height: 1.35; letter-spacing: -.01em; margin-bottom: 6px; }
+    .r-sub { color: var(--ink-3); font-size: 14px; margin-bottom: 20px; }
+    .r-lead { font-size: 17px; color: var(--ink-2); max-width: 46em; margin-bottom: 28px; }
+    .r-lead b { color: var(--ink); }
+    .r-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 36px; }
+    .r-stat { background: var(--bg); border-radius: 16px; padding: 16px; }
+    .r-stat b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+    .r-stat span { font-size: 13px; color: var(--ink-3); line-height: 1.4; display: block; margin-top: 4px; }
+    .r-h4 { font-size: 15px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .r-h4::before { content: ""; width: 4px; height: 16px; border-radius: 2px; background: #8b5cf6; }
+
+    .pipeline { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin-bottom: 12px; }
+    .step { flex: 1 1 150px; background: var(--bg); border-radius: 14px; padding: 14px; position: relative; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .step b { display: block; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+    .step .n { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #8b5cf6; color: #fff; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+    .step.human { background: transparent; border: 2px dashed var(--line); }
+    .step.human .n { background: var(--c-green); }
+    .pipe-note { font-size: 13px; color: var(--ink-3); margin-bottom: 36px; }
+
+    .r-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; margin-bottom: 36px; }
+    .bars { display: grid; gap: 12px; }
+    .bar-row { display: grid; grid-template-columns: 92px 1fr 40px; align-items: center; gap: 10px; font-size: 14px; }
+    .bar-row .lbl { color: var(--ink-2); }
+    .bar-row .val { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+    .track { height: 12px; background: var(--bg); border-radius: 6px; position: relative; }
+    .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 6px 6px 0; background: #8b5cf6; }
+    .bar-row.low .fill { background: #c4b0fb; }
+    .bar-row:hover .track { outline: 2px solid #e5dcff; outline-offset: 2px; }
+    .bars-foot { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); margin: 6px 50px 0 102px; }
+    .bars-note { font-size: 13px; color: var(--ink-3); margin-top: 12px; }
+
+    .findings { display: grid; gap: 12px; }
+    .finding { padding: 16px 18px; border-radius: 16px; background: var(--bg); border-left: 3px solid #8b5cf6; }
+    .finding b { display: block; font-size: 15px; margin-bottom: 2px; }
+    .finding p { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+    .takeaway { border-top: 1px solid var(--line); padding-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .takeaway div { font-size: 14px; color: var(--ink-2); }
+    .takeaway b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+    @media (max-width: 860px) { .r-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- skills ---------- */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .skill { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .skill h3 { font-size: 17px; font-weight: 800; margin-bottom: 12px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { font-size: 13px; font-weight: 500; padding: 4px 11px; border-radius: 8px; background: var(--bg); color: var(--ink-2); }
+
+    /* ---------- experience ---------- */
+    .timeline { position: relative; display: grid; gap: 20px; }
+    .timeline::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+    .tl { position: relative; padding-left: 56px; }
+    .tl .pin { position: absolute; left: 8px; top: 22px; width: 24px; height: 24px; border-radius: 50%; background: var(--card); border: 3px solid var(--c, var(--ink-3)); }
+    .tl-card { background: var(--card); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+    .tl-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 6px; }
+    .tl h3 { font-size: 18px; font-weight: 800; }
+    .tl .org { color: var(--ink-2); font-size: 15px; }
+    .tl .when { font-size: 13px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .tl ul { margin-top: 10px; padding-left: 20px; color: var(--ink-2); font-size: 15px; }
+    .tl ul li { margin-bottom: 3px; }
+    .tl ul li::marker { color: var(--c, var(--accent)); }
+    .tl-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; margin-top: 6px; }
+    @media (max-width: 720px) { .tl-groups { grid-template-columns: 1fr; } }
+    .tl-group h4 { font-size: 14px; font-weight: 800; margin-top: 12px; color: var(--ink); }
+    .tl-group ul { margin-top: 4px; }
+    .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 28px; }
+    .cert { background: var(--card); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow); display: flex; gap: 14px; align-items: center; }
+    .cert b { display: block; font-size: 15px; }
+    .cert span { font-size: 13px; color: var(--ink-3); }
+
+    /* ---------- contact ---------- */
+    .contact-box { background: var(--ink); color: #fff; border-radius: 32px; padding: clamp(36px, 6vw, 64px); text-align: center; position: relative; overflow: hidden; }
+    .contact-box::before, .contact-box::after { content: ""; position: absolute; border-radius: 50%; filter: blur(40px); opacity: .5; }
+    .contact-box::before { width: 260px; height: 260px; background: var(--accent); top: -100px; left: -60px; }
+    .contact-box::after { width: 220px; height: 220px; background: var(--c-blue); bottom: -100px; right: -40px; }
+    .contact-box > * { position: relative; }
+    .contact-box h2 { color: #fff; margin-bottom: 12px; }
+    .contact-box p { color: #c8c8cc; margin-bottom: 28px; }
+    .contact-box .btn-primary { background: #fff; color: var(--ink); }
+    .contact-box .btn-ghost { background: transparent; border-color: rgba(255,255,255,.3); color: #fff; }
+    .contact-box .btns { justify-content: center; }
+    footer { padding: 32px 0 40px; text-align: center; color: var(--ink-3); font-size: 13px; }
+
+    /* ---------- reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .badge { animation: none; }
+      .card, .btn, .mock, .cover img { transition: none; }
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 40px; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .avatar-card { order: -1; width: min(240px, 70%); margin-bottom: 8px; }
+      .avatar .initial { font-size: 84px; }
+      .badge.b1 { left: -24%; } .badge.b2 { right: -24%; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 28px 0; }
+    }
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: 1fr; }
+      .badge { font-size: 12px; padding: 8px 10px; }
+      .badge.b1 { left: -14%; } .badge.b2 { right: -14%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <a href="#top" class="logo">TN<span>.</span></a>
+      <div class="nav-links">
+        <a href="#projects"><span lang="zh">作品</span><span lang="en">Work</span></a>
+        <a href="#research"><span lang="zh">研究</span><span lang="en">Research</span></a>
+        <a href="#skills"><span lang="zh">技能</span><span lang="en">Skills</span></a>
+        <a href="#experience"><span lang="zh">經歷</span><span lang="en">Experience</span></a>
+        <a href="#contact"><span lang="zh">聯絡</span><span lang="en">Contact</span></a>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-set-lang="zh">中</button>
+        <button data-set-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="hello"><span class="dot"></span>
+          <span lang="zh">高雄・可遠端合作</span><span lang="en">Kaohsiung, Taiwan · Open to remote</span>
+        </div>
+        <h1>
+          <span lang="zh">嗨，我是<span class="hl">黃足寧</span></span>
+          <span lang="en">Hi, I'm <span class="hl">Tsu-Ning Huang (Moxin) </span></span>
+        </h1>
+        <p class="role">
+          <span lang="zh">全端工程師 × 資訊主管。15 年軟體開發經驗，近十年在 24 小時不停機的醫院，負責多系統整合、資料平台與資安制度。喜歡把複雜的現場流程，做成穩定又好用的系統。</span>
+          <span lang="en">Full-stack engineer and IT lead. 15 years in software, the last ten running system integration, data platforms and security in a hospital that never shuts down. I like turning messy, real-world workflows into systems that are reliable and easy to use.</span>
+        </p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#projects"><span lang="zh">看作品</span><span lang="en">See my work</span> →</a>
+          <!-- 履歷下載：準備好沒有電話的 resume.pdf 後，把下一行的註解拿掉
+          <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener"><span lang="zh">下載履歷</span><span lang="en">Résumé (PDF)</span></a>
+          -->
+        </div>
+        <div class="stats">
+          <div class="stat"><b>15+</b><span lang="zh">年軟體開發經驗</span><span lang="en">years in software</span></div>
+          <div class="stat"><b>13</b><span lang="zh">人開發團隊帶領</span><span lang="en">engineers led</span></div>
+          <div class="stat"><b>10+</b><span lang="zh">件專案 / 年，如期交付</span><span lang="en">projects shipped / year</span></div>
+        </div>
+      </div>
+
+      <div class="avatar-card reveal">
+        <div class="avatar">
+          <!-- 把大頭照存成 images/avatar.webp 就會自動顯示 -->
+          <img src="images/avatar.webp" alt="黃足寧 Huang Tsu Ning" onerror="this.remove()" />
+          <span class="initial">寧</span>
+        </div>
+        <div class="badge b1">ISO 27001 LA</div>
+        <div class="badge b2">Full-stack</div>
+        <div class="badge b3">ISC2 CC</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Selected Work</div>
+          <h2><span lang="zh">作品集</span><span lang="en">Projects</span></h2>
+        </div>
+        <div class="filters" id="filters"></div>
+      </div>
+      <div class="grid" id="project-grid"></div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH ========== -->
+  <section id="research">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Research</div>
+          <h2><span lang="zh">研究論文</span><span lang="en">Master's Thesis</span></h2>
+        </div>
+      </div>
+
+      <div class="research reveal">
+        <div class="r-head">
+          <span class="pill hot">Generative AI · RAG · LLM-as-Judge</span>
+          <span class="pill"><span lang="zh">國立中山大學 資管系</span><span lang="en">NSYSU · Information Management</span></span>
+          <span class="pill">2026</span>
+        </div>
+        <h3 class="r-title">
+          <span lang="zh">生成式 AI 應用於護理交班紀錄之可行性評估：以某區域教學醫院為例</span>
+          <span lang="en">Feasibility Assessment of Generative AI Applied to Nursing Handoff Documentation: A Case Study of a Regional Teaching Hospital</span>
+        </h3>
+        <p class="r-sub"><span lang="zh">指導教授：李偉柏 博士</span><span lang="en">Advisor: Dr. Wei-Po Lee</span></p>
+        <p class="r-lead">
+          <span lang="zh">護理師每班都要花大量時間在多個系統間查資料、手寫交班紀錄。我建構了一套 <b>RAG + 大型語言模型</b> 的自動產生流程，整合 17 類臨床資料、學習護理師的書寫風格，自動產出交班紀錄草稿，讓護理師從「書寫者」轉為「審閱者」。</span>
+          <span lang="en">Nurses spend a large share of every shift digging through multiple systems to write handoff notes. I built a <b>RAG + LLM pipeline</b> that pulls 17 types of clinical data, learns the nurses' own writing style and drafts the handoff note — turning nurses from writers into reviewers.</span>
+        </p>
+
+        <div class="r-stats">
+          <div class="r-stat"><b>1,066</b><span lang="zh">班次實證（45 位病人、ICU／內科／外科）</span><span lang="en">shifts evaluated (45 patients, ICU / medical / surgical)</span></div>
+          <div class="r-stat"><b>3.99<small style="font-size:15px;color:var(--ink-3)"> / 5</small></b><span lang="zh">CARES 五維度品質評分</span><span lang="en">CARES 5-dimension quality score</span></div>
+          <div class="r-stat"><b>0.70</b><span lang="zh">BERTScore F1 語意相似度</span><span lang="en">BERTScore F1 semantic similarity</span></div>
+          <div class="r-stat"><b>−47%</b><span lang="zh">前班壓縮後，單班行數 62 → 33</span><span lang="en">lines per shift after prior-shift compression (62 → 33)</span></div>
+          <div class="r-stat"><b>$0.003</b><span lang="zh">每班生成成本（USD）</span><span lang="en">generation cost per shift (USD)</span></div>
+        </div>
+
+        <div class="r-h4"><span lang="zh">系統流程</span><span lang="en">How it works</span></div>
+        <div class="pipeline">
+          <div class="step"><span class="n">1</span><b><span lang="zh">資料整合</span><span lang="en">Data integration</span></b><span lang="zh">17 類臨床資料：生命徵象、給藥、檢驗、管路、護理紀錄…</span><span lang="en">17 clinical sources: vitals, meds, labs, lines, nursing notes…</span></div>
+          <div class="step"><span class="n">2</span><b><span lang="zh">去識別化與過濾</span><span lang="en">De-identify & filter</span></b><span lang="zh">三層去識別化；Parser 層濾除行政醫囑、合併同日檢驗</span><span lang="en">3-layer de-identification; parser drops admin orders, merges same-day labs</span></div>
+          <div class="step"><span class="n">3</span><b><span lang="zh">多源 RAG 檢索</span><span lang="en">Multi-source RAG</span></b><span lang="zh">Bi-Encoder + Cross-Encoder 重排序，關鍵字強制召回臨床縮寫</span><span lang="en">Bi-encoder + cross-encoder rerank, keyword-forced recall for abbreviations</span></div>
+          <div class="step"><span class="n">4</span><b><span lang="zh">LLM 生成</span><span lang="en">LLM generation</span></b><span lang="zh">gpt-5-mini 結合前班壓縮紀錄與安全審查清單產生草稿</span><span lang="en">gpt-5-mini drafts with compressed prior shift and a safety checklist</span></div>
+          <div class="step human"><span class="n">5</span><b><span lang="zh">護理師審閱</span><span lang="en">Nurse review</span></b><span lang="zh">人機協作：用藥資訊維持人工複核</span><span lang="en">Human-in-the-loop, especially for medications</span></div>
+        </div>
+        <p class="pipe-note"><span lang="zh">評估：BLEU／ROUGE／BERTScore 自動指標，加上 gpt-4o 擔任 LLM 評審的 CARES 五維度評分（評審與生成模型隔離，避免自我偏好）。</span><span lang="en">Evaluation: BLEU / ROUGE / BERTScore plus a five-dimension CARES LLM-as-Judge score using gpt-4o, kept separate from the generator to avoid self-bias.</span></p>
+
+        <div class="r-grid">
+          <div>
+            <div class="r-h4"><span lang="zh">CARES 五維度評分（n = 1,066）</span><span lang="en">CARES scores (n = 1,066)</span></div>
+            <div class="bars" role="table" aria-label="CARES scores">
+              <div class="bar-row" role="row" title="4.24 / 5"><span class="lbl" role="cell"><span lang="zh">臨床實用性</span><span lang="en">Usefulness</span></span><span class="track"><span class="fill" style="width:calc((4.24 - 1) / 4 * 100%)"></span></span><span class="val" role="cell">4.24</span></div>
+              <div class="bar-row" role="row" title="4.15 / 5"><span class="lbl" role="cell"><span lang="zh">完整性</span><span lang="en">Completeness</span></span><span class="track"><span class="fill" style="width:calc((4.15 - 1) / 4 * 100%)"></span></span><span class="val" role="cell">4.15</span></div>
+              <div class="bar-row" role="row" title="4.14 / 5"><span class="lbl" role="cell"><span lang="zh">可讀性</span><span lang="en">Readability</span></span><span class="track"><span class="fill" style="width:calc((4.14 - 1) / 4 * 100%)"></span></span><span class="val" role="cell">4.14</span></div>
+              <div class="bar-row" role="row" title="4.07 / 5"><span class="lbl" role="cell"><span lang="zh">病人安全</span><span lang="en">Safety</span></span><span class="track"><span class="fill" style="width:calc((4.07 - 1) / 4 * 100%)"></span></span><span class="val" role="cell">4.07</span></div>
+              <div class="bar-row low" role="row" title="3.62 / 5"><span class="lbl" role="cell"><span lang="zh">正確性</span><span lang="en">Correctness</span></span><span class="track"><span class="fill" style="width:calc((3.62 - 1) / 4 * 100%)"></span></span><span class="val" role="cell">3.62</span></div>
+            </div>
+            <div class="bars-foot"><span>1</span><span>5</span></div>
+            <p class="bars-note"><span lang="zh">正確性最低，主因是用藥與劑量，佔所有錯誤標記的 40.8%。</span><span lang="en">Correctness is lowest — medication and dosage account for 40.8% of flagged issues.</span></p>
+          </div>
+
+          <div>
+            <div class="r-h4"><span lang="zh">關鍵發現</span><span lang="en">Key findings</span></div>
+            <div class="findings">
+              <div class="finding"><div>
+                <b><span lang="zh">發現並解決「跨班雪球效應」</span><span lang="en">Found and fixed the cross-shift snowball effect</span></b>
+                <p><span lang="zh">每班輸出會成為下一班的輸入，內容會越滾越長。我設計五步驟的前班輸出壓縮機制，讓長度維持穩定。</span><span lang="en">Each shift's output feeds the next, so notes balloon over time. A five-step prior-shift compression keeps length stable.</span></p>
+              </div></div>
+              <div class="finding"><div>
+                <b><span lang="zh">資料層過濾比 Prompt 禁令有效</span><span lang="en">Filtering data beats prompt rules</span></b>
+                <p><span lang="zh">模型看不到的內容就不會寫。Parser、Context、Prompt、Output 四層一起過濾雜訊，ROUGE-L 提升 18–22%。</span><span lang="en">What the model never sees, it never writes. Four filtering layers (parser, context, prompt, output) lifted ROUGE-L by 18–22%.</span></p>
+              </div></div>
+              <div class="finding"><div>
+                <b><span lang="zh">安全審查清單讓幻覺減少 34.7%</span><span lang="en">A safety checklist cut hallucinations by 34.7%</span></b>
+                <p><span lang="zh">在 Prompt 中加入管路、過敏、DNR、用藥劑量等六項檢查，病人安全分數提升 11%。</span><span lang="en">Six prompt-level checks (lines, allergies, DNR, dosage…) raised the safety score by 11%.</span></p>
+              </div></div>
+              <div class="finding"><div>
+                <b><span lang="zh">以成本效益做模型選型</span><span lang="en">Model choice driven by cost and quality</span></b>
+                <p><span lang="zh">比較 gemma、gpt-oss、gpt-5-mini 等模型。gpt-5-mini 品質已達高原，成本只有 gpt-4o 的 1/8.4。</span><span lang="en">Compared gemma, gpt-oss and gpt-5-mini; gpt-5-mini hit the quality plateau at 1/8.4 the cost of gpt-4o.</span></p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="takeaway">
+          <div><b><span lang="zh">工程面</span><span lang="en">Engineering</span></b><span lang="zh">從資料串接、RAG 檢索、Prompt 設計到自動化評估，獨立完成一套可重複驗證的生成式 AI 系統。</span><span lang="en">Built an end-to-end, reproducible GenAI system — data integration, RAG retrieval, prompt design and automated evaluation.</span></div>
+          <div><b><span lang="zh">管理面</span><span lang="en">Leadership</span></b><span lang="zh">在醫療場域落實去識別化與倫理審查，用數據做技術選型與成本評估，並設計人機協作的導入方式。</span><span lang="en">Handled de-identification and ethics review in a clinical setting, chose technology on data and cost, and designed a human-in-the-loop rollout.</span></div>
+          <div><b><span lang="zh">延伸應用</span><span lang="en">Beyond healthcare</span></b><span lang="zh">「從多個系統彙整資料、參考歷史紀錄、產生草稿再由專人確認」這套做法，同樣適用於產線交接班日誌、設備維修紀錄等需要跨班延續的現場文件。</span><span lang="en">The same pattern — gather data from several systems, draw on past records, draft, then have a person confirm — fits shift-handover logs and equipment maintenance records on the factory floor just as well.</span></div>
+        </div>
+        <!-- TODO: 論文公開後，在這裡加上全文連結，例如：
+        <div class="btns" style="margin-top:28px"><a class="btn btn-ghost" href="論文網址" target="_blank" rel="noopener">論文全文 ↗</a></div>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Toolbox</div>
+          <h2><span lang="zh">技能</span><span lang="en">Skills</span></h2>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill reveal">
+          <h3><span lang="zh">全端開發</span><span lang="en">Full-stack</span></h3>
+          <div class="chips"><span class="chip">C#</span><span class="chip">Blazor Server</span><span class="chip">Ruby on Rails</span><span class="chip">Node.js</span><span class="chip">Python</span><span class="chip">React</span><span class="chip">Flutter</span><span class="chip">Astro</span><span class="chip">Keystatic</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span lang="zh">資訊安全</span><span lang="en">Security</span></h3>
+          <div class="chips"><span class="chip">ISO 27001:2022 Lead Auditor</span><span class="chip">ISC2 CC</span><span class="chip">SSDLC</span><span class="chip">DevSecOps</span><span class="chip"><span lang="zh">資通系統防護基準</span><span lang="en">Gov. security baseline</span></span><span class="chip"><span lang="zh">資安稽核</span><span lang="en">Security audit</span></span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span lang="zh">資料庫與數據</span><span lang="en">Data</span></h3>
+          <div class="chips"><span class="chip">Oracle</span><span class="chip">MS SQL</span><span class="chip">PostgreSQL</span><span class="chip">ETL</span><span class="chip">Data Warehouse</span><span class="chip">Self-service BI</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span lang="zh">生成式 AI</span><span lang="en">Generative AI</span></h3>
+          <div class="chips"><span class="chip">RAG</span><span class="chip">Prompt Engineering</span><span class="chip">LLM-as-Judge</span><span class="chip">Embedding / Reranker</span><span class="chip">OpenAI API</span><span class="chip">NLP Evaluation</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span lang="zh">架構與維運</span><span lang="en">Platform & DevOps</span></h3>
+          <div class="chips"><span class="chip">OpenShift (OCP)</span><span class="chip">Microservices</span><span class="chip">DDD</span><span class="chip">CI/CD</span><span class="chip">LINE Messaging API</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span lang="zh">管理</span><span lang="en">Leadership</span></h3>
+          <div class="chips"><span class="chip"><span lang="zh">專案管理</span><span lang="en">Project management</span></span><span class="chip"><span lang="zh">敏捷開發</span><span lang="en">Agile</span></span><span class="chip"><span lang="zh">團隊管理</span><span lang="en">Team leadership</span></span><span class="chip"><span lang="zh">廠商管理</span><span lang="en">Vendor management</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Journey</div>
+          <h2><span lang="zh">經歷</span><span lang="en">Experience</span></h2>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl reveal" style="--c: var(--c-purple)">
+          <span class="pin"></span>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div>
+                <h3><span lang="zh">資管碩士（在職進修）</span><span lang="en">M.S. in Information Management (part-time)</span></h3>
+                <div class="org"><span lang="zh">國立中山大學</span><span lang="en">National Sun Yat-sen University</span></div>
+              </div>
+              <span class="when">2024 – 2026</span>
+            </div>
+            <ul lang="zh"><li>論文：生成式 AI 應用於護理交班紀錄之可行性評估（<a href="#research" style="border-bottom:2px solid var(--c)">看研究 →</a>）</li></ul>
+            <ul lang="en"><li>Thesis: Generative AI for nursing handoff documentation (<a href="#research" style="border-bottom:2px solid var(--c)">see research →</a>)</li></ul>
+          </div>
+        </div>
+        <div class="tl reveal" style="--c: var(--accent)">
+          <span class="pin"></span>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div>
+                <h3><span lang="zh">系統規劃課長</span><span lang="en">Systems Planning Section Chief</span></h3>
+                <div class="org"><span lang="zh">門諾醫院（員工 1500 人以上）</span><span lang="en">Mennonite Christian Hospital (1,500+ staff)</span></div>
+              </div>
+              <span class="when">2016.06 – <span lang="zh">至今</span><span lang="en">Present</span></span>
+            </div>
+            <div class="tl-groups">
+              <div class="tl-group">
+                <h4><span lang="zh">專案管理</span><span lang="en">Project delivery</span></h4>
+                <ul lang="zh">
+                  <li>每年主導 10 件以上系統專案，全數如期交付</li>
+                  <li>導入敏捷開發與量化指標管理，交付週期由 4 週縮短至 1 週</li>
+                  <li>直接與使用單位釐清實務需求，拆解為可執行的開發項目並控管期程</li>
+                  <li>委外廠商管理：需求議定、進度稽催、驗收查核</li>
+                </ul>
+                <ul lang="en">
+                  <li>Lead 10+ system projects a year, every one delivered on schedule</li>
+                  <li>Introduced agile delivery and metrics, cutting the release cycle from 4 weeks to 1</li>
+                  <li>Work directly with end users to pin down real needs, then break them into scoped, scheduled work</li>
+                  <li>Vendor management: scoping, progress follow-up and acceptance review</li>
+                </ul>
+              </div>
+              <div class="tl-group">
+                <h4><span lang="zh">團隊管理</span><span lang="en">Team leadership</span></h4>
+                <ul lang="zh">
+                  <li>帶領 13 人開發團隊，負責工作分派、技術指導與交付品質把關</li>
+                  <li>培育成員獨立負責模組，5 位升任資深工程師／組長</li>
+                  <li>以量化指標追蹤團隊產出與品質，作為改善與考核依據</li>
+                </ul>
+                <ul lang="en">
+                  <li>Lead a 13-person dev team: task assignment, technical coaching and quality gatekeeping</li>
+                  <li>Grew members into module owners — 5 promoted to senior engineer / team lead</li>
+                  <li>Track team output and quality with metrics to drive improvement and reviews</li>
+                </ul>
+              </div>
+              <div class="tl-group">
+                <h4><span lang="zh">資訊安全</span><span lang="en">Security</span></h4>
+                <ul lang="zh">
+                  <li>主導 SSDLC 安全軟體開發流程導入，核心系統通過資通系統防護基準「高級」檢測</li>
+                  <li>建立資安管理制度並通過 ISO 27001 外部驗證，稽核缺失全數結案</li>
+                </ul>
+                <ul lang="en">
+                  <li>Drove SSDLC adoption — core systems passed the government "High" security baseline</li>
+                  <li>Built the ISMS and passed external ISO 27001 certification, closing every audit finding</li>
+                </ul>
+              </div>
+              <div class="tl-group">
+                <h4><span lang="zh">架構與數據</span><span lang="en">Architecture & data</span></h4>
+                <ul lang="zh">
+                  <li>以 DDD 劃分系統邊界、拆分微服務，部署於 OpenShift（OCP），並建立 CI/CD 流程</li>
+                  <li>建置資料倉儲、ETL 與指標儀表板；導入 Self-service BI，降低臨時報表需求</li>
+                </ul>
+                <ul lang="en">
+                  <li>Used DDD to split systems into microservices on OpenShift (OCP), with CI/CD pipelines</li>
+                  <li>Built a data warehouse, ETL and KPI dashboards; self-service BI cut ad-hoc report requests</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl reveal" style="--c: var(--c-blue)">
+          <span class="pin"></span>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div>
+                <h3><span lang="zh">程式設計師</span><span lang="en">Software Engineer</span></h3>
+                <div class="org"><span lang="zh">英福達科技股份有限公司</span><span lang="en">Yingfuda Technology Co., Ltd.</span></div>
+              </div>
+              <span class="when">2011.03 – 2016.04</span>
+            </div>
+            <ul lang="zh">
+              <li>公文線上簽核系統之需求分析、系統設計與全端開發（C#／MS SQL）</li>
+              <li>整合電子簽章與憑證，通過檔案管理局公文電子交換／線上簽核檢測</li>
+            </ul>
+            <ul lang="en">
+              <li>Full-stack development of an online document-approval system (C# / MS SQL), from analysis to delivery</li>
+              <li>Integrated digital signatures and certificates; passed the National Archives e-document certification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl reveal" style="--c: var(--c-green)">
+          <span class="pin"></span>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div>
+                <h3><span lang="zh">資訊工程系（四技）</span><span lang="en">B.S. in Computer Science & Information Engineering</span></h3>
+                <div class="org"><span lang="zh">大仁科技大學</span><span lang="en">Tajen University</span></div>
+              </div>
+              <span class="when">2004 – 2008</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="certs">
+        <div class="cert reveal"><div><b><span lang="zh">ISO 27001 主導稽核員</span><span lang="en">ISO 27001 Lead Auditor</span></b><span>SGS</span></div></div>
+        <div class="cert reveal"><div><b>Certified in Cybersecurity (CC)</b><span lang="zh">ISC2 國際資訊系統安全認證協會</span><span lang="en">ISC2</span></div></div>
+        <div class="cert reveal"><div><b><span lang="zh">丙級電腦硬體裝修技術士</span><span lang="en">Computer Hardware Repair Technician (Level C)</span></b><span lang="zh">勞動部</span><span lang="en">Ministry of Labor</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <div class="eyebrow" style="color:#ffb8a8">Let's talk</div>
+        <h2><span lang="zh">一起聊聊吧</span><span lang="en">Let's work together</span></h2>
+        <p><span lang="zh">工作機會或專案合作，都歡迎來信。</span><span lang="en">Job opportunities or project collaboration — feel free to reach out.</span></p>
+        <div class="btns">
+          <a class="btn btn-primary" href="mailto:ningmoxin@gmail.com">ningmoxin@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Tsu-Ning (Moxin) Huang</footer>
+
+  <script>
+    /* =========================================================
+       作品資料：新增 / 修改作品只要改這裡
+       - category: 用來篩選（system / web / mobile）
+       - image:    放截圖路徑（例如 "images/cram.jpg"）；留空就顯示示意圖
+       - mock:     沒有截圖時的示意圖樣式 dash / site / phone / app / doc / flow
+       - color:    卡片主色
+       - links:    [{ zh, en, url }]，url 留空就不顯示
+       - role:     （選填）你的角色 { zh, en }，例如 { zh: "獨立開發", en: "Solo developer" }
+       - result:   （選填）成果數字 { zh, en }，例如 { zh: "行政工時減少 50%", en: "Admin time cut by 50%" }
+       - story:    （選填）詳細案例，會出現「看詳細案例」展開區
+                   { zh: [["背景", "..."], ["做法", "..."], ["困難與解法", "..."], ["成果", "..."]],
+                     en: [["Background", "..."], ["Approach", "..."], ["Challenges", "..."], ["Results", "..."]] }
+       ========================================================= */
+    const PROJECTS = [
+      {
+        category: "system", color: "#ffb020", mock: "flow", image: "",
+        tags: ["OCP", "Microservices", "DDD", "CI/CD"],
+        zh: { title: "醫院系統架構現代化", desc: "帶領團隊以 DDD 重新劃分系統邊界，將既有系統逐步拆分為微服務，部署於 OpenShift 容器平台，讓各模組能獨立開發與上線。",
+              points: ["以 DDD 進行領域分離，拆分微服務", "防腐層（ACL）隔離舊系統資料庫", "OpenShift Container Platform（OCP）容器化部署", "CI/CD 自動化建置與部署流程"] },
+        en: { title: "Hospital Platform Modernization", desc: "Led the team in using DDD to redraw system boundaries, breaking legacy systems into microservices on OpenShift so each module can be built and released independently.",
+              points: ["Domain separation with DDD, split into microservices", "Anti-corruption layer (ACL) shielding the legacy database", "Containerized on OpenShift Container Platform (OCP)", "Automated CI/CD build and deploy pipelines"] },
+        role: { zh: "主導規劃，帶領 13 人開發團隊", en: "Led planning and a 13-person dev team" },
+        result: { zh: "搭配敏捷流程，交付週期由 4 週縮短至 1 週", en: "Together with agile delivery, release cycle cut from 4 weeks to 1" },
+        story: {
+          zh: [
+            ["背景", "醫院既有系統的功能與資料庫彼此高度耦合，修改一處常牽動多個模組，新功能難以快速、安全地上線。"],
+            ["做法", "以 DDD 進行領域分離，依業務劃分限界上下文（Bounded Context），再逐步拆分為微服務。新服務與舊系統之間設置防腐層（Anti-Corruption Layer），新服務不直接依賴舊資料庫結構，由防腐層負責轉換。服務容器化部署於 OpenShift（OCP），並建立 CI/CD 自動化流程。"],
+            ["困難與解法", "舊系統必須持續營運，無法一次替換。透過防腐層讓新舊系統並行，依領域逐一遷移，降低切換風險；同時以 SSDLC 把關安全，確保拆分過程符合資安要求。"],
+            ["成果", "各模組可獨立開發、測試與部署；搭配敏捷流程，交付週期由 4 週縮短至 1 週。"]
+          ],
+          en: [
+            ["Background", "The hospital's legacy systems were tightly coupled to one another and to a shared database, so a change in one place often rippled through many modules and new features were slow and risky to ship."],
+            ["Approach", "Used DDD to separate domains into bounded contexts, then split them into microservices step by step. An anti-corruption layer sits between new services and the legacy system, so new services never depend on the old database schema directly. Services run in containers on OpenShift (OCP) with automated CI/CD."],
+            ["Challenges", "The legacy system had to keep running — a big-bang replacement was not an option. The anti-corruption layer let old and new run side by side while each domain was migrated in turn, with SSDLC keeping every step within security requirements."],
+            ["Results", "Modules can now be built, tested and deployed independently; together with agile delivery, the release cycle dropped from 4 weeks to 1."]
+          ]
+        },
+        links: []
+      },
+      {
+        category: "mobile", color: "#0ea5b7", mock: "app", image: "images/hospital-app.webp",
+        tags: ["Flutter", "Dart", "REST API"],
+        zh: { title: "醫院行動 APP", desc: "以 Flutter 開發、iOS 與 Android 共用一套程式碼的醫院 APP，讓民眾用手機完成掛號與看診相關服務。",
+              points: ["多院區切換、依科別線上掛號", "查詢及取消掛號", "即時看診進度查詢"] },
+        en: { title: "Hospital Mobile App", desc: "A cross-platform Flutter app (iOS and Android from one codebase) that lets patients handle appointments and visits from their phone.",
+              points: ["Multi-campus booking by department", "Look up and cancel appointments", "Live clinic queue status"] },
+        links: [{ zh: "App Store", en: "App Store", url: "" }, { zh: "Google Play", en: "Google Play", url: "" }]
+      },
+      {
+        category: "mobile", color: "#06c755", mock: "phone", image: "",
+        tags: ["LINE OA", "Messaging API", "Chatbot", "PRM"],
+        zh: { title: "LINE 官方帳號整合", desc: "為醫院與補習班兩種場域打造 LINE 官方帳號服務，串接既有系統，讓使用者不必另外下載 APP，在 LINE 裡就能接收服務。",
+              points: ["醫院：聊天機器人自動回覆民眾問題", "醫院：病患關係管理（PRM），主動關懷與分眾推播", "補習班：學生簽到／簽退即時通知家長", "串接醫院資訊系統與補習班管理系統資料"] },
+        en: { title: "LINE Official Account Integrations", desc: "LINE Official Account services for two settings — a hospital and a cram school — connected to existing systems so people get service right in LINE, no extra app needed.",
+              points: ["Hospital: chatbot answering common questions", "Hospital: patient relationship management (PRM) with outreach and segmented messages", "Cram school: real-time check-in / check-out alerts to parents", "Connected to the hospital information system and the school management system"] },
+        links: []
+      },
+      {
+        category: "system", color: "#ff6b4a", mock: "dash", image: "images/cram-school.webp",
+        tags: ["Ruby on Rails", "PostgreSQL"],
+        zh: { title: "補習班管理系統", desc: "為補習班打造的一站式營運系統，整合學生、課程與收費管理，取代紙本與 Excel 作業。",
+              points: ["學生資料、班級與排課管理", "繳費紀錄與收據列印", "出缺勤點名與家長通知"] },
+        en: { title: "Cram School Management System", desc: "An all-in-one operations system for a cram school, replacing paper and spreadsheets for students, classes and billing.",
+              points: ["Student records, classes and scheduling", "Tuition payments and receipts", "Attendance tracking and parent notifications"] },
+        links: [{ zh: "Demo", en: "Demo", url: "" }]
+      },
+      {
+        category: "system", color: "#4a7dff", mock: "dash", image: "images/construction.webp",
+        tags: ["React", "REST API"],
+        zh: { title: "工程管制系統", desc: "追蹤工程案件從立案、施工到驗收的進度管制平台，讓管理者即時掌握每個案場狀態。",
+              points: ["案件進度與里程碑追蹤", "逾期提醒與儀表板", "文件與照片紀錄"] },
+        en: { title: "Construction Project Control System", desc: "A progress-control platform tracking projects from kickoff to acceptance, giving managers a live view of every site.",
+              points: ["Milestone and progress tracking", "Overdue alerts and dashboards", "Document and photo records"] },
+        links: [{ zh: "Demo", en: "Demo", url: "" }]
+      },
+      {
+        category: "web", color: "#22b07d", mock: "site", image: "images/corporate-site.webp",
+        tags: ["Astro", "Keystatic", "SEO"],
+        zh: { title: "企業形象網站", desc: "以 Astro 建置的高效能靜態網站，搭配 Keystatic 後台，讓客戶不用懂程式也能自行更新內容。",
+              points: ["Keystatic 視覺化內容編輯", "響應式設計與 SEO 優化"] },
+        en: { title: "Corporate Website", desc: "A fast static site built with Astro, paired with Keystatic so the client can update content without touching code.",
+              points: ["Visual content editing with Keystatic", "Responsive design and SEO"] },
+        links: [{ zh: "網站", en: "Website", url: "" }]
+      },
+      {
+        category: "system", color: "#8b5cf6", mock: "doc", image: "",
+        tags: ["C#", "MS SQL", "PKI"],
+        zh: { title: "公文線上簽核系統", desc: "全端開發公文線上簽核，設計陳核、會辦、代理與決行層級流程，並整合電子簽章。",
+              points: ["彈性簽核路徑與時效管制", "電子簽章確保不可否認性", "通過檔案管理局檢測"] },
+        en: { title: "Online Document Approval System", desc: "Full-stack development of e-document approval with routing, co-signing, delegation and authority levels, plus digital signatures.",
+              points: ["Flexible routing and deadline control", "Digital signatures for non-repudiation", "Passed National Archives certification"] },
+        role: { zh: "需求分析、系統設計與全端開發", en: "Requirements, design and full-stack development" },
+        result: { zh: "通過檔案管理局公文電子交換／線上簽核檢測，如期交付驗收", en: "Passed National Archives e-document certification; delivered and accepted on schedule" },
+        links: []
+      }
+    ];
+
+    const CATEGORIES = [
+      { key: "all",    zh: "全部",     en: "All" },
+      { key: "system", zh: "系統開發", en: "Systems" },
+      { key: "web",    zh: "網站",     en: "Websites" },
+      { key: "mobile", zh: "App / LINE", en: "App / LINE" }
+    ];
+
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const both = (zh, en) => `<span lang="zh">${esc(zh)}</span><span lang="en">${esc(en)}</span>`;
+
+    function mockHTML(type) {
+      const bar = `<div class="bar"><i></i><i></i><i></i></div>`;
+      switch (type) {
+        case "site":
+          return `<div class="mock">${bar}<div class="ui ui-site"><div class="blk c hero-b"><span></span></div><div class="blk tile"></div><div class="blk tile c2"></div><div class="blk tile"></div></div></div>`;
+        case "phone":
+          return `<div class="mock phone"><div class="ui-chat"><div class="head"></div><div class="msg"></div><div class="msg me"></div><div class="msg"></div><div class="menu"><b></b><b></b><b></b><b></b><b></b><b></b></div></div></div>`;
+        case "app":
+          return `<div class="mock phone"><div class="ui-app"><div class="head"></div><div class="card-b"></div><div class="grid-b"><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="row-b"></div><div class="row-b"></div></div></div>`;
+        case "doc":
+          return `<div class="mock">${bar}<div class="ui ui-doc"><div class="blk t c2"></div><div class="blk"></div><div class="blk"></div><div class="blk" style="width:80%"></div><div class="blk"></div><div class="stamp"></div></div></div>`;
+        case "flow":
+          return `<div class="mock">${bar}<div class="ui ui-flow"><div class="node on"></div><div class="arr"></div><div class="node on"></div><div class="arr"></div><div class="node"></div><div class="arr"></div><div class="node"></div></div></div>`;
+        default:
+          return `<div class="mock">${bar}<div class="ui ui-dash"><div class="blk side"></div><div class="blk c2"></div><div class="blk"></div><div class="blk"></div><div class="blk wide"><b style="height:40%"></b><b style="height:70%"></b><b style="height:55%"></b><b style="height:90%"></b><b style="height:65%"></b></div><div class="blk row3"></div></div></div>`;
+      }
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById("project-grid");
+      grid.innerHTML = PROJECTS.map(p => {
+        // 圖片存在就蓋在示意圖上；找不到檔案時自動移除，顯示示意圖
+        const cover = mockHTML(p.mock) + (p.image
+          ? `<img src="${esc(p.image)}" alt="${esc(p.zh.title)}" loading="lazy" onerror="this.remove()" />`
+          : "");
+        // 只顯示有填網址的連結；全部沒填就不顯示這一列
+        const links = p.links.filter(l => l.url).map(l =>
+          `<a href="${esc(l.url)}" target="_blank" rel="noopener">${both(l.zh, l.en)} ↗</a>`
+        ).join("");
+        return `
+          <article class="card reveal" data-cat="${p.category}" style="--c:${p.color}">
+            <div class="cover" style="background:${p.color}1f">${cover}</div>
+            <div class="card-body">
+              <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+              <h3>${both(p.zh.title, p.en.title)}</h3>
+              <p>${both(p.zh.desc, p.en.desc)}</p>
+              <ul lang="zh">${p.zh.points.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+              <ul lang="en">${p.en.points.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+              ${(p.role || p.result) ? `<dl class="meta">
+                ${p.role ? `<div><dt>${both("角色", "Role")}</dt><dd>${both(p.role.zh, p.role.en)}</dd></div>` : ""}
+                ${p.result ? `<div><dt>${both("成果", "Impact")}</dt><dd>${both(p.result.zh, p.result.en)}</dd></div>` : ""}
+              </dl>` : ""}
+              ${p.story ? `<details class="story">
+                <summary>${both("看詳細案例", "Read the case study")}</summary>
+                <div lang="zh">${p.story.zh.map(([h, t]) => `<h4>${esc(h)}</h4><p>${esc(t)}</p>`).join("")}</div>
+                <div lang="en">${p.story.en.map(([h, t]) => `<h4>${esc(h)}</h4><p>${esc(t)}</p>`).join("")}</div>
+              </details>` : ""}
+              ${links ? `<div class="card-links">${links}</div>` : ""}
+            </div>
+          </article>`;
+      }).join("");
+
+      const filters = document.getElementById("filters");
+      filters.innerHTML = CATEGORIES.map((c, i) =>
+        `<button data-filter="${c.key}" class="${i === 0 ? "active" : ""}">${both(c.zh, c.en)}</button>`
+      ).join("");
+      filters.addEventListener("click", e => {
+        const btn = e.target.closest("button");
+        if (!btn) return;
+        filters.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === btn));
+        const f = btn.dataset.filter;
+        grid.querySelectorAll(".card").forEach(card =>
+          card.classList.toggle("hide", f !== "all" && card.dataset.cat !== f));
+      });
+    }
+
+    /* ---------- language ---------- */
+    function setLang(lang) {
+      document.documentElement.dataset.lang = lang;
+      document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(b => b.classList.toggle("active", b.dataset.setLang === lang));
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+    }
+    let saved = null;
+    try { saved = localStorage.getItem("lang"); } catch (e) {}
+    const urlLang = new URLSearchParams(location.search).get("lang");
+    setLang(urlLang || saved || (navigator.language.startsWith("zh") ? "zh" : "en"));
+    document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.setLang)));
+
+    /* ---------- init ---------- */
+    renderProjects();
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const nav = document.getElementById("nav");
+    addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      }), { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+    }
+  </script>
+</body>
+</html>
